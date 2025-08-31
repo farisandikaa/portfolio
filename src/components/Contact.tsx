@@ -68,7 +68,7 @@ export default function Contact() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { delay: 0.2, duration: 0.5 } }}
       >
-        Interested in working together? Let's connect!
+        Interested in working together? Let&#39;s connect!
       </motion.p>
 
       <form ref={formRef} onSubmit={handleSubmit} className="grid gap-4">
