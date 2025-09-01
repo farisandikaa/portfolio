@@ -1,10 +1,13 @@
+"use client";
+
 import React from "react";
+import Image from "next/image";
 
 const projects = [
   {
     title: "Github",
     github: "https://github.com/farisandikaa",
-    image: "/images/github.png", // tambahkan screenshot jika ada
+    image: "/images/github.png", 
     tech: [""],
   },
   {
@@ -35,11 +38,14 @@ export default function Portfolio() {
             className="group bg-gray-100 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl"
           >
             {project.image && (
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover"
-              />
+              <div className="w-full h-48 relative">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
             )}
             <div className="p-4">
               <h3 className="font-semibold text-lg mb-2">{project.title}</h3>

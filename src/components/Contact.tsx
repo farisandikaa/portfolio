@@ -7,11 +7,15 @@ import emailjs from "@emailjs/browser";
 
 const inputVariant = {
   hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1 } }),
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1 },
+  }),
 };
 
 export default function Contact() {
-  const formRef = useRef<HTMLFormElement>(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
 
@@ -24,10 +28,10 @@ export default function Contact() {
 
     emailjs
       .sendForm(
-        "service_lk1gmcl",  // ganti dengan Service ID dari EmailJS
-        "7g2f7ao", // ganti dengan Template ID
+        "service_lk1gmcl", // Service ID
+        "7g2f7ao", // Template ID
         formRef.current,
-        "b5lfKAi4Kw3OMY18R"   // ganti dengan Public Key EmailJS
+        "b5lfKAi4Kw3OMY18R" // Public Key
       )
       .then(
         () => {
@@ -68,39 +72,44 @@ export default function Contact() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { delay: 0.2, duration: 0.5 } }}
       >
-        Interested in working together? Let&#39;s connect!
+        {"Interested in working together? Let's connect!"}
       </motion.p>
 
       <form ref={formRef} onSubmit={handleSubmit} className="grid gap-4">
-        {["Your Name", "Your Email", "Message"].map((label, i) => (
-          <motion.div
-            className="flex flex-col text-left"
-            key={i}
-            custom={i}
-            variants={inputVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <label className="mb-1 font-medium text-gray-700">{label}</label>
-            {label !== "Message" ? (
-              <input
-                type={label === "Your Email" ? "email" : "text"}
-                name={label.toLowerCase().replace(" ", "_")}
-                placeholder={`Enter your ${label.toLowerCase()}`}
-                className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-                required
-              />
-            ) : (
-              <textarea
-                name="message"
-                placeholder="Your message"
-                className="border border-gray-300 rounded-lg p-3 h-32 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-                required
-              />
-            )}
-          </motion.div>
-        ))}
+        {["Your Name", "Your Email", "Message"].map((label, i) => {
+          const name = label.toLowerCase().replace(/\s+/g, "_");
+          return (
+            <motion.div
+              className="flex flex-col text-left"
+              key={i}
+              custom={i}
+              variants={inputVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <label className="mb-1 font-medium text-gray-700">{label}</label>
+              {label !== "Message" ? (
+                <input
+                  type={label === "Your Email" ? "email" : "text"}
+                  name={name}
+                  aria-label={label}
+                  placeholder={`Enter your ${label.toLowerCase()}`}
+                  className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  required
+                />
+              ) : (
+                <textarea
+                  name="message"
+                  aria-label="Message"
+                  placeholder="Your message"
+                  className="border border-gray-300 rounded-lg p-3 h-32 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+                  required
+                />
+              )}
+            </motion.div>
+          );
+        })}
 
         <motion.button
           type="submit"
@@ -113,7 +122,11 @@ export default function Contact() {
         </motion.button>
 
         {feedback && (
-          <p className={`mt-2 ${feedback.includes("success") ? "text-green-600" : "text-red-600"}`}>
+          <p
+            className={`mt-2 ${
+              feedback.includes("success") ? "text-green-600" : "text-red-600"
+            }`}
+          >
             {feedback}
           </p>
         )}

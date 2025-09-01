@@ -57,7 +57,7 @@ export default function Navbar() {
       <div className="backdrop-blur-md bg-white/60 border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link href="#hero" className="text-2xl font-bold text-blue-600">
-            Faris Web
+            Faris Andika
           </Link>
 
           {/* Desktop menu */}
