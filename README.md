@@ -8,7 +8,7 @@
 Welcome to my **personal portfolio website**, built with [Next.js](https://nextjs.org/), [React](https://react.dev/), and [Tailwind CSS](https://tailwindcss.com/).  
 It showcases my projects, GitHub repositories, and provides a way to get in touch with me.
 
-🔗 **Live Website:** [https://farisandika.vercel.app](https://farisandika.vercel.app)
+🔗 **Live Website:** [DEMO](https://farisandika.vercel.app)
 
 ---
 
@@ -42,36 +42,29 @@ ext/image\
 ## 🛠️ Getting Started
 
 ### 1. Clone this repository
-\\\bash
+```bash
 git clone https://github.com/farisandikaa/portfolio.git
 cd portfolio
 \\\
 
 ### 2. Install dependencies
-\\\bash
+
 npm install
-\\\
+
 
 ### 3. Run development server
-\\\bash
+
 npm run dev
-\\\
+
 Open [http://localhost:3000](http://localhost:3000) to see the result.
 
 ### 4. Build for production
-\\\bash
+
 npm run build
 npm start
-\\\
+```
 
----
 
-## 📸 Screenshots
-*(Tambahkan gambar preview website kalau mau, taruh di folder \public/\ misalnya \screenshot.png\)*
-
-![Screenshot](public/screenshot.png)
-
----
 
 ## 📜 License
 This project is licensed under the [MIT License](LICENSE).
@@ -84,5 +77,6 @@ If you’d like to collaborate or have any inquiries, feel free to reach out:
 - 📧 Email: **farisandika2111@gmail.com**  
 - 💼 LinkedIn: [linkedin.com/in/farisandikaputra](https://linkedin.com/in/farisandikaputra)  
 - 🐙 GitHub: [github.com/farisandikaa](https://github.com/farisandikaa)  
+
 
 
