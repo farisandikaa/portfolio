@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const projects = [
   {
-    title: "Viertual Tour Web-Based - Rectorate Universitas Pakuan",
+    title: "Virtual Tour Web-Based",
     github: "https://faris-virtualtour.vercel.app/",
     image: "/images/virtualtour.png", 
     tech: ["HTML", "JavaScript", "CSS"],
