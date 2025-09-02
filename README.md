@@ -62,24 +62,24 @@ portfolio/
 ## 🛠️ Getting Started
 
 ### 1. Clone this repository
-```bash
+```
 git clone https://github.com/farisandikaa/portfolio.git
 cd portfolio
-\\\
 
+```
 ### 2. Install dependencies
-
+```
 npm install
-
+```
 
 ### 3. Run development server
-
+```
 npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to see the result.
-
+```
 ### 4. Build for production
-
+```
 npm run build
 npm start
 ```
@@ -97,6 +97,7 @@ If you’d like to collaborate or have any inquiries, feel free to reach out:
 - 📧 Email: **farisandika2111@gmail.com**  
 - 💼 LinkedIn: [linkedin.com/in/farisandikaputra](https://linkedin.com/in/farisandikaputra)  
 - 🐙 GitHub: [github.com/farisandikaa](https://github.com/farisandikaa)  
+
 
 
 
