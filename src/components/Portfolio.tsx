@@ -18,7 +18,7 @@ const projects = [
   },
   {
     title: "E-commerce App - Tunas Honda",
-    github: "https://github.com/username/tunashonda",
+    github: "https://github.com/farisandika/tunashonda",
     image: "/images/tunashonda.png",
     tech: ["CodeIgniter", "Css", "JavaScript"],
   },
