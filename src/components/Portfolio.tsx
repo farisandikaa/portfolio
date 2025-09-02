@@ -11,16 +11,16 @@ const projects = [
     tech: [""],
   },
   {
-    title: "E-commerce App",
+    title: "E-commerce App - Riva Cake",
     github: "https://github.com/farisandikaa/rivacake",
-    image: "/images/portfolio2.png",
+    image: "/images/rivacake.png",
     tech: ["Laravel", "MySQL", "JavaScript"],
   },
   {
-    title: "Project 3",
-    github: "https://github.com/username/project3",
-    image: "/images/portfolio3.png",
-    tech: ["Next.js", "Framer Motion"],
+    title: "E-commerce App - Tunas Honda",
+    github: "https://github.com/username/tunashonda",
+    image: "/images/tunashonda.png",
+    tech: ["CodeIgniter", "Css", "JavaScript"],
   },
 ];
 
