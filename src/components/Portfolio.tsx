@@ -5,10 +5,10 @@ import Image from "next/image";
 
 const projects = [
   {
-    title: "Github",
-    github: "https://github.com/farisandikaa",
-    image: "/images/github.png", 
-    tech: [""],
+    title: "Viertual Tour Web-Based - Rectorate Universitas Pakuan",
+    github: "https://faris-virtualtour.vercel.app/",
+    image: "/images/virtualtour.png", 
+    tech: ["HTML", "JavaScript", "CSS"],
   },
   {
     title: "E-commerce App - Riva Cake",
