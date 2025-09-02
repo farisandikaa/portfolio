@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const navItems = [
-  { name: "Home", href: "#hero" },
+  { name: "Home", href: "farisandika.vercel.app" },
   { name: "About", href: "#about" },
   { name: "Services", href: "#services" },
   { name: "Portfolio", href: "#portfolio" },
@@ -15,7 +15,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeId, setActiveId] = useState("");
 
-  // IntersectionObserver untuk highlight active link
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll("section[id]"));
     if (!sections.length) return;
@@ -35,7 +34,6 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  // lock body scroll when mobile menu open
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
@@ -43,7 +41,7 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  // close on ESC
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsOpen(false);
@@ -92,13 +90,11 @@ export default function Navbar() {
             className="md:hidden p-2 rounded-md bg-white/30 hover:bg-white/40"
           >
             {isOpen ? (
-              // close (X) icon
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
                 <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 <path d="M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
               </svg>
             ) : (
-              // hamburger icon
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
                 <path d="M3 6h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                 <path d="M3 12h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
