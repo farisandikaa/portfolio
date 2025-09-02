@@ -6,7 +6,7 @@ export const metadata = {
   openGraph: {
     title: "Contact Me – Faris Andika Putra",
     description: "Get in touch with me for collaboration, projects, or freelance work.",
-    url: "https://yourdomain.com/contact",
+    url: "https://farisandika.vercel.app/contact",
     images: [
       {
         url: "/contact-og.png",
