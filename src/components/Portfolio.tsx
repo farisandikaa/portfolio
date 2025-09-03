@@ -25,6 +25,17 @@ const projects = [
 ];
 
 export default function Portfolio() {
+  
+  const trackProjectClick = (projectTitle: string, projectUrl: string) => {
+    if (typeof window !== "undefined" && typeof window.gtag !== "undefined") {
+      window.gtag("event", "click_portfolio_project", {
+        event_category: "portfolio",
+        event_label: projectTitle,
+        value: projectUrl,
+      });
+    }
+  };
+
   return (
     <div className="max-w-5xl mx-auto py-20 px-6 animate-fadeIn">
       <h2 className="text-3xl font-bold text-center mb-10">Portfolio</h2>
@@ -36,6 +47,7 @@ export default function Portfolio() {
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-gray-100 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl"
+            onClick={() => trackProjectClick(project.title, project.github)} // 🔥 tracking klik project
           >
             {project.image && (
               <div className="w-full aspect-video relative group">
