@@ -18,21 +18,21 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --header-height: 64px; /* sesuaikan bila navbar lebih tinggi */
+    --header-height: 64px; 
   }
   
-  /* smooth scroll */
+  
   html {
     scroll-behavior: smooth;
   }
   
-  /* buat anchor jump tidak tertutup header */
+ 
   main > section,
   section {
     scroll-margin-top: calc(var(--header-height) + 8px);
   }
   
-  /* simple fade-in helper (dipakai di komponen jika perlu) */
+  
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(8px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -41,4 +41,4 @@
   .animate-fadeIn { 
     animation: fadeIn 700ms ease both; 
   }
-} /* ← ini yang kemarin hilang */
+} 

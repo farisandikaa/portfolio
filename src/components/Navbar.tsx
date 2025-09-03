@@ -40,8 +40,7 @@ export default function Navbar() {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
-
-
+  
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsOpen(false);

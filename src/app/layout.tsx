@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import WAButton from "@/components/WAButton";
 
 export const metadata: Metadata = {
   title: "Faris - Web Developer",
@@ -19,6 +20,7 @@ export default function RootLayout({
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <WAButton/>
       </body>
     </html>
   );

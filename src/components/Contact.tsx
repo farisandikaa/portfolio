@@ -51,7 +51,7 @@ export default function Contact() {
     { icon: <FaGithub />, href: "https://github.com/farisandikaa" },
     { icon: <FaLinkedin />, href: "https://linkedin.com/in/farisandikaputra" },
   ];
-
+ 
   return (
     <motion.div
       className="max-w-3xl mx-auto py-20 px-6 text-center"
@@ -106,7 +106,9 @@ export default function Contact() {
                   className="border border-gray-300 rounded-lg p-3 h-32 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                   required
                 />
+                
               )}
+             
             </motion.div>
           );
         })}
@@ -152,5 +154,6 @@ export default function Contact() {
         ))}
       </motion.div>
     </motion.div>
+    
   );
 }
