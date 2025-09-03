@@ -28,7 +28,6 @@ export default function WhatsAppButton() {
           <FaWhatsapp size={28} />
         </button>
       ) : (
-        // 📦 Mode "jendela kecil"
         <div className="bg-white rounded-xl shadow-lg w-64 p-4 flex flex-col">
           <div className="flex items-center gap-2 mb-3">
             <div className="bg-green-500 text-white p-2 rounded-full">
