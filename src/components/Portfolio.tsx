@@ -7,7 +7,7 @@ const projects = [
   {
     title: "Virtual Tour Web-Based",
     github: "https://faris-virtualtour.vercel.app/",
-    image: "/images/virtualtour.png", 
+    image: "/images/virtualtour.png",
     tech: ["HTML", "JavaScript", "CSS"],
   },
   {
@@ -20,7 +20,7 @@ const projects = [
     title: "E-commerce App - Tunas Honda",
     github: "https://github.com/farisandikaa/tunashonda",
     image: "/images/tunashonda.png",
-    tech: ["CodeIgniter", "Css", "JavaScript"],
+    tech: ["CodeIgniter", "CSS", "JavaScript"],
   },
 ];
 
@@ -38,13 +38,16 @@ export default function Portfolio() {
             className="group bg-gray-100 rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl"
           >
             {project.image && (
-              <div className="w-full h-48 relative">
+              <div className="w-full aspect-video relative group">
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} thumbnail`}
                   fill
                   className="object-cover"
                 />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                  <span className="text-white font-medium">View Project</span>
+                </div>
               </div>
             )}
             <div className="p-4">
