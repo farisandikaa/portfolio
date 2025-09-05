@@ -3,7 +3,6 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
-import emailjs from "@emailjs/browser";
 
 const inputVariant = {
   hidden: { opacity: 0, y: 20 },
@@ -19,30 +18,37 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formRef.current) return;
 
     setLoading(true);
     setFeedback(null);
 
-    emailjs
-      .sendForm(
-        "service_lk1gmcl", // Service ID
-        "7g2f7ao", // Template ID
-        formRef.current,
-        "b5lfKAi4Kw3OMY18R" // Public Key
-      )
-      .then(
-        () => {
-          setFeedback("Message sent successfully!");
-          formRef.current?.reset();
-        },
-        () => {
-          setFeedback("Failed to send message. Please try again.");
-        }
-      )
-      .finally(() => setLoading(false));
+    const formData = new FormData(formRef.current);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+
+      if (result.success) {
+        setFeedback("Message sent successfully!");
+        formRef.current.reset();
+      } else {
+        // tampilkan pesan error dari API
+        setFeedback(result.message || "Failed to send message. Please try again.");
+      }
+    } catch (err: any) {
+      console.error(err);
+      setFeedback(err.message || "Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const socialLinks = [
@@ -51,7 +57,7 @@ export default function Contact() {
     { icon: <FaGithub />, href: "https://github.com/farisandikaa" },
     { icon: <FaLinkedin />, href: "https://linkedin.com/in/farisandikaputra" },
   ];
- 
+
   return (
     <motion.div
       className="max-w-3xl mx-auto py-20 px-6 text-center"
@@ -76,7 +82,7 @@ export default function Contact() {
       </motion.p>
 
       <form ref={formRef} onSubmit={handleSubmit} className="grid gap-4">
-        {["Your Name", "Your Email", "Message"].map((label, i) => {
+        {["Name", "Email", "Message"].map((label, i) => {
           const name = label.toLowerCase().replace(/\s+/g, "_");
           return (
             <motion.div
@@ -106,9 +112,7 @@ export default function Contact() {
                   className="border border-gray-300 rounded-lg p-3 h-32 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                   required
                 />
-                
               )}
-             
             </motion.div>
           );
         })}
@@ -154,6 +158,5 @@ export default function Contact() {
         ))}
       </motion.div>
     </motion.div>
-    
   );
 }
