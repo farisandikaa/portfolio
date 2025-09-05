@@ -2,13 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ClientWrapper from "../components/ClientWrapper";
 import Script from "next/script";
-import dynamic from "next/dynamic";
-
-// WAButton di-load secara dinamis hanya di client
-const WAButton = dynamic(() => import("@/components/WAButton"), {
-  ssr: false,
-});
 
 export const metadata: Metadata = {
   title: "Faris - Web Developer",
@@ -41,8 +36,7 @@ export default function RootLayout({
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
-        {/* WA Button muncul di client side */}
-        <WAButton />
+        <ClientWrapper /> {/* WAButton hanya jalan di client */}
       </body>
     </html>
   );
