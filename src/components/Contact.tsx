@@ -28,11 +28,18 @@ export default function Contact() {
     const formData = new FormData(formRef.current);
     const data = Object.fromEntries(formData.entries());
 
+    // Sesuaikan nama field agar cocok dengan API
+    const payload = {
+      name: data.name as string,
+      email: data.email as string,
+      message: data.message as string,
+    };
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
       const result = await res.json();
 
@@ -44,11 +51,10 @@ export default function Contact() {
       }
     } catch (err: unknown) {
       console.error(err);
-      if (err instanceof Error) {
-        setFeedback(err.message);
-      } else {
-        setFeedback("Failed to send message. Please try again.");
-      }
+      // Karena 'err' bertipe unknown, pakai pengecekan
+      const message =
+        err instanceof Error ? err.message : "Failed to send message. Please try again.";
+      setFeedback(message);
     } finally {
       setLoading(false);
     }
@@ -85,40 +91,61 @@ export default function Contact() {
       </motion.p>
 
       <form ref={formRef} onSubmit={handleSubmit} className="grid gap-4">
-        {["Your Name", "Your Email", "Message"].map((label, i) => {
-          const name = label.toLowerCase().replace(/\s+/g, "_");
-          return (
-            <motion.div
-              className="flex flex-col text-left"
-              key={i}
-              custom={i}
-              variants={inputVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <label className="mb-1 font-medium text-gray-700">{label}</label>
-              {label !== "Message" ? (
-                <input
-                  type={label === "Your Email" ? "email" : "text"}
-                  name={name}
-                  aria-label={label}
-                  placeholder={`Enter your ${label.toLowerCase()}`}
-                  className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-                  required
-                />
-              ) : (
-                <textarea
-                  name="message"
-                  aria-label="Message"
-                  placeholder="Your message"
-                  className="border border-gray-300 rounded-lg p-3 h-32 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-                  required
-                />
-              )}
-            </motion.div>
-          );
-        })}
+        <motion.div
+          className="flex flex-col text-left"
+          custom={0}
+          variants={inputVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <label className="mb-1 font-medium text-gray-700">Your Name</label>
+          <input
+            type="text"
+            name="name"
+            aria-label="Your Name"
+            placeholder="Enter your name"
+            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            required
+          />
+        </motion.div>
+
+        <motion.div
+          className="flex flex-col text-left"
+          custom={1}
+          variants={inputVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <label className="mb-1 font-medium text-gray-700">Your Email</label>
+          <input
+            type="email"
+            name="email"
+            aria-label="Your Email"
+            placeholder="Enter your email"
+            className="border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            required
+          />
+        </motion.div>
+
+        <motion.div
+          className="flex flex-col text-left"
+          custom={2}
+          variants={inputVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <label className="mb-1 font-medium text-gray-700">Message</label>
+          <textarea
+            name="message"
+            aria-label="Message"
+            placeholder="Your message"
+            className="border border-gray-300 rounded-lg p-3 h-32 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            required
+          />
+        </motion.div>
 
         <motion.button
           type="submit"
