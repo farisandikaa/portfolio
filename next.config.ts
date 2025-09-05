@@ -1,10 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  swcMinify: true, 
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
   async headers() {
     return [
       {
-        source: "/(.*)", // berlaku untuk semua route
+        source: "/(.*)",
         headers: [
           {
             key: "Content-Security-Policy",
