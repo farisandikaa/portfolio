@@ -7,7 +7,6 @@ export default function WhatsAppButton() {
   const [open, setOpen] = useState(false);
   const whatsappLink = "https://wa.me/6289693477040";
 
- 
   const trackWhatsAppClick = () => {
     if (typeof window !== "undefined" && typeof window.gtag !== "undefined") {
       window.gtag("event", "click_whatsapp", {
@@ -20,10 +19,10 @@ export default function WhatsAppButton() {
   return (
     <div className="fixed bottom-5 right-5 z-50">
       {!open ? (
-    
         <button
           onClick={() => setOpen(true)}
           className="flex items-center justify-center bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all"
+          aria-label="Buka tombol WhatsApp"
         >
           <FaWhatsapp size={28} />
         </button>
@@ -39,23 +38,25 @@ export default function WhatsAppButton() {
           </div>
 
           <p className="text-gray-600 text-xs mb-4">
-            You will be redirected to WhatsApp, Do you want to continue ?
+            You will be redirected to WhatsApp, do you want to continue?
           </p>
 
           <div className="flex justify-between">
             <button
               onClick={() => setOpen(false)}
               className="px-3 py-2 text-xs rounded-lg bg-gray-200 hover:bg-gray-300 transition"
+              aria-label="Tutup tombol WhatsApp"
             >
-              Tutup
+              Close
             </button>
             <a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-2 text-xs rounded-lg bg-green-500 text-white hover:bg-green-600 transition"
+              aria-label="Lanjut chat di WhatsApp"
               onClick={() => {
-                trackWhatsAppClick(); 
+                trackWhatsAppClick();
                 setOpen(false);
               }}
             >
