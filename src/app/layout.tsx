@@ -2,12 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import dynamic from "next/dynamic"; // 
+import WAButton from "@/components/WAButton";
 import Script from "next/script";
-
-const WAButton = dynamic(() => import("@/components/WAButton"), {
-  ssr: false,
-});
 
 export const metadata: Metadata = {
   title: "Faris - Web Developer",
@@ -22,12 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-VXP446JWMR"
-          strategy="lazyOnload" 
+          strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="lazyOnload">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -40,7 +35,7 @@ export default function RootLayout({
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
-        <WAButton /> {}
+        <WAButton />
       </body>
     </html>
   );
