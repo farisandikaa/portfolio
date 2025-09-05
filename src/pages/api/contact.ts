@@ -14,30 +14,33 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   if (req.method !== "POST") {
-    return res.status(405).json({ success: false, message: "Method not allowed" });
+    return res
+      .status(405)
+      .json({ success: false, message: "Method not allowed" });
   }
 
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
-    return res.status(400).json({ success: false, message: "Missing fields" });
+    return res
+      .status(400)
+      .json({ success: false, message: "Missing fields" });
   }
 
   try {
-   
+    
     const { error: supabaseError } = await supabase
       .from("contacts")
       .insert([{ name, email, message }]);
 
     if (supabaseError) {
       console.error("Supabase Error:", supabaseError.message);
-      return res.status(500).json({
-        success: false,
-        message: `Supabase Error: ${supabaseError.message}`,
-      });
+      return res
+        .status(500)
+        .json({ success: false, message: "Failed to save message to database" });
     }
 
-   
+    
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -53,20 +56,21 @@ export default async function handler(
         subject: `New message from ${name}`,
         text: message,
       });
-    } catch (mailErr: any) {
-      console.error("Nodemailer Error:", mailErr.message);
-      return res.status(500).json({
-        success: false,
-        message: `Email Error: ${mailErr.message}`,
-      });
+    } catch (mailErr: unknown) {
+      console.error("Nodemailer Error:", mailErr);
+      return res
+        .status(500)
+        .json({ success: false, message: "Failed to send email" });
     }
 
-    return res.status(200).json({ success: true, message: "Message sent successfully!" });
-  } catch (err: any) {
-    console.error("Unexpected Error:", err.message);
+    return res
+      .status(200)
+      .json({ success: true, message: "Message sent successfully!" });
+  } catch (err: unknown) {
+    console.error("Unexpected Error:", err);
     return res.status(500).json({
       success: false,
-      message: `Unexpected Error: ${err.message || "Failed to send message"}`,
+      message: err instanceof Error ? err.message : "Failed to send message",
     });
   }
 }

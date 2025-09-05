@@ -40,12 +40,15 @@ export default function Contact() {
         setFeedback("Message sent successfully!");
         formRef.current.reset();
       } else {
-        // tampilkan pesan error dari API
-        setFeedback(result.message || "Failed to send message. Please try again.");
+        setFeedback("Failed to send message. Please try again.");
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setFeedback(err.message || "Failed to send message. Please try again.");
+      if (err instanceof Error) {
+        setFeedback(err.message);
+      } else {
+        setFeedback("Failed to send message. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
@@ -82,7 +85,7 @@ export default function Contact() {
       </motion.p>
 
       <form ref={formRef} onSubmit={handleSubmit} className="grid gap-4">
-        {["Name", "Email", "Message"].map((label, i) => {
+        {["Your Name", "Your Email", "Message"].map((label, i) => {
           const name = label.toLowerCase().replace(/\s+/g, "_");
           return (
             <motion.div
