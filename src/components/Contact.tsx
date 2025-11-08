@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { FaEnvelope, FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+// import { FaEnvelope, FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 const inputVariant = {
   hidden: { opacity: 0, y: 20 },
@@ -60,12 +60,7 @@ export default function Contact() {
     }
   };
 
-  const socialLinks = [
-    { icon: <FaEnvelope />, href: "mailto:farisandika2111@gmail.com" },
-    { icon: <FaWhatsapp />, href: "https://wa.link/vi4jxg" },
-    { icon: <FaGithub />, href: "https://github.com/farisandikaa" },
-    { icon: <FaLinkedin />, href: "https://linkedin.com/in/farisandikaputra" },
-  ];
+
 
   return (
     <motion.div
@@ -168,25 +163,7 @@ export default function Contact() {
         )}
       </form>
 
-      <motion.div
-        className="mt-10 flex justify-center gap-6 text-gray-600 text-xl"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1, transition: { delay: 0.5 } }}
-        viewport={{ once: true }}
-      >
-        {socialLinks.map((item, i) => (
-          <motion.a
-            key={i}
-            href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-blue-600"
-            whileHover={{ scale: 1.2 }}
-          >
-            {item.icon}
-          </motion.a>
-        ))}
-      </motion.div>
+
     </motion.div>
   );
 }

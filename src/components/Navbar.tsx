@@ -1,38 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
+
   const [isOpen, setIsOpen] = useState(false);
-  const [activeId, setActiveId] = useState("");
-
-  useEffect(() => {
-    const sections = Array.from(document.querySelectorAll("section[id]"));
-    if (!sections.length) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
-      },
-      { root: null, rootMargin: "-40% 0px -55% 0px", threshold: 0.15 }
-    );
-
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, []);
+  const pathname = usePathname();
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -60,11 +43,10 @@ export default function Navbar() {
           {/* Desktop menu */}
           <ul className="hidden md:flex items-center gap-6">
             {navItems.map((item) => {
-              const id = item.href.replace("#", "");
-              const isActive = activeId === id;
+              const isActive = pathname === item.href;
               return (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
                     className={
                       "py-2 px-3 rounded-md transition-colors " +
@@ -74,7 +56,7 @@ export default function Navbar() {
                     }
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
@@ -112,11 +94,10 @@ export default function Navbar() {
         <div className="px-4 pb-6 pt-2 bg-white/95">
           <ul className="flex flex-col gap-3">
             {navItems.map((item) => {
-              const id = item.href.replace("#", "");
-              const isActive = activeId === id;
+              const isActive = pathname === item.href;
               return (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
                     className={
@@ -127,7 +108,7 @@ export default function Navbar() {
                     }
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               );
             })}

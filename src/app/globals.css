@@ -42,3 +42,21 @@
     animation: fadeIn 700ms ease both; 
   }
 } 
+/* Custom Swiper */
+        .swiper-button-prev,
+        .swiper-button-next {
+          color: #1d4ed8; 
+          transition: all 0.3s ease;
+        }
+        .swiper-button-prev:hover,
+        .swiper-button-next:hover {
+          color: #2563eb; 
+          transform: scale(1.1);
+        }
+        .swiper-pagination-bullet {
+          background: #cbd5e1;
+          opacity: 1;
+        }
+        .swiper-pagination-bullet-active {
+          background: #1d4ed8;
+        }

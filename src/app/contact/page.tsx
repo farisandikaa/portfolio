@@ -25,5 +25,27 @@ export const metadata = {
 };
 
 export default function ContactPage() {
-  return <Contact />;
+  return (
+    <>
+      <Contact />
+      <div className="max-w-3xl mx-auto px-4 pb-16">
+        <h3 className="text-2xl font-bold mb-4 mt-12 text-blue-700 text-center">Find Me on Google Maps</h3>
+        <div className="w-full h-72 rounded-xl overflow-hidden shadow-lg border bg-gray-100 flex items-center justify-center">
+          <iframe
+            title="Google Maps Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d495.56406407167515!2d106.97334352821527!3d-6.456556950510408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6995884f3c0df7%3A0x93088f5b679f1f43!2sPerum%20BCI%20Bogor%20Timur!5e0!3m2!1sid!2sid!4v1758519845631!5m2!1sid!2sid"
+            width="100%"
+            height="100%"
+            style={{ border: 0, minHeight: 288 }}
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <noscript>
+            <div className="text-center text-gray-500 text-sm p-4">Google Maps could not be loaded. Please check your browser settings or Content Security Policy.</div>
+          </noscript>
+        </div>
+      </div>
+    </>
+  );
 }
