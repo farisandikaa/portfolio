@@ -51,14 +51,14 @@ export default function AboutPage() {
             Web Developer & Tech Enthusiast
           </motion.p>
           <motion.span className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-semibold mt-2" variants={fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }}>
-            "Building impactful digital experiences"
+            `&#34;`Building impactful digital experiences`&#34;`
           </motion.span>
         </motion.div>
 
         {/* Bio */}
         <motion.div className="mb-10 w-full flex justify-center" variants={fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }}>
           <p className="text-base md:text-lg text-gray-700 max-w-2xl text-center">
-            Hello! I'm <span className="font-semibold text-blue-600">Faris</span>, a passionate web developer with a strong focus on modern, scalable, and user-friendly web applications. I love exploring new technologies, contributing to open source, and collaborating on creative projects. My goal is to deliver solutions that make a real difference for users and businesses.
+            Hello! I`&#39`m <span className="font-semibold text-blue-600">Faris</span>, a passionate web developer with a strong focus on modern, scalable, and user-friendly web applications. I love exploring new technologies, contributing to open source, and collaborating on creative projects. My goal is to deliver solutions that make a real difference for users and businesses.
           </p>
         </motion.div>
 
