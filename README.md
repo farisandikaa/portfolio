@@ -8,7 +8,7 @@
 Welcome to my **personal portfolio website**, built with [Next.js](https://nextjs.org/), [React](https://react.dev/), and [Tailwind CSS](https://tailwindcss.com/).  
 It showcases my projects, GitHub repositories, and provides a way to get in touch with me.
 
-🔗 **Live Website:** [DEMO](https://farisandika.vercel.app)
+🔗 [**Live Website**](https://farisandika.vercel.app)
 
 ---
 
