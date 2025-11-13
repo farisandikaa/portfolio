@@ -110,22 +110,22 @@ export default function AboutPage() {
               {
                 icon: <FaAward className="text-white" />,
                 title: "Freelance Web Developer",
-                date: "2021 - Present",
+                date: "2023 - Present",
                 desc: "Building custom websites and web apps for various clients, focusing on performance and user experience.",
                 color: "bg-blue-600"
               },
               {
-                icon: <FaGithub className="text-white" />,
-                title: "Open Source Contributor",
-                date: "2025 - Present",
-                desc: "Contributing to open source projects on GitHub, collaborating with global developer communities.",
-                color: "bg-blue-400"
+                icon: <FaAward className="text-white" />,
+                title: "Intern at PT. Manggis Indonesia",
+                date: "2023",
+                desc: "Worked on real-world projects, learning agile development and teamwork in a fast-paced environment.",
+                color: "bg-blue-300"
               },
               {
                 icon: <FaAward className="text-white" />,
-                title: "Intern at PT. Manggis Indonesia",
-                date: "2021",
-                desc: "Worked on real-world projects, learning agile development and teamwork in a fast-paced environment.",
+                title: "Fullstack Website Developer at HYP and Partners",
+                date: "2024 - Present",
+                desc: "Responsible for the complete development of the company’s official website, from initial planning to deployment and maintenance.",
                 color: "bg-blue-300"
               },
             ].map((exp, i) => (
@@ -184,18 +184,18 @@ export default function AboutPage() {
   {/* Call to Action */}
   <motion.div className="mt-10 text-gray-600 text-base flex flex-col items-center gap-4 w-full" variants={fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }}>
           <motion.p variants={fadeInUp} transition={{ duration: 0.7, ease: 'easeOut' }}>
-            Interested in working together or want to know more? Download my CV or get in touch!
+            Interested in working together or want to know more? Download my Resume or get in touch!
           </motion.p>
           <div className="flex gap-4">
             <motion.a
-              href="/cv-farisandika.pdf"
+              href="https://drive.google.com/file/d/1NPyHL7h9fhCwPdvjWdwYLtq20cx62VIS/view?usp=sharing"
               download
               className="px-6 py-3 rounded-lg bg-blue-600 text-white font-medium shadow hover:bg-blue-700 transition"
               whileHover={{ scale: 1.07, backgroundColor: "#2563eb" }}
               variants={fadeInUp}
               transition={{ duration: 0.7, ease: 'easeOut' }}
             >
-              Download CV
+              Download Resume
             </motion.a>
             <Link href="/contact">
               <motion.button
