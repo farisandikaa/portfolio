@@ -5,6 +5,12 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    title: "HYP & Partners Attorney and Legal Consultant",
+    github: "https://hyplawoffice.com",
+    image: "/images/thumbnailhyp.png",
+    tech: ["Laravel", "JavaScript", "TailwindCSS"],
+  },
+  {
     title: "Virtual Tour Web-Based",
     github: "https://faris-virtualtour.vercel.app/",
     image: "/images/virtualtour.png",
@@ -25,12 +31,6 @@ const projects = [
   {
     title: "Bank DP Taspen Bogor",
     github: "https://github.com/farisandikaa/bank",
-    image: "/images/tunashonda.png",
-    tech: ["Laravel", "TailwindCSS", "JavaScript"],
-  },
-  {
-    title: "Lawfirm Web-Based",
-    github: "https://github.com/farisandikaa/law-firm",
     image: "/images/tunashonda.png",
     tech: ["Laravel", "TailwindCSS", "JavaScript"],
   },
