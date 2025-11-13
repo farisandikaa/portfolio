@@ -2,7 +2,6 @@
 
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-// import { FaEnvelope, FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 const inputVariant = {
   hidden: { opacity: 0, y: 20 },
@@ -28,7 +27,6 @@ export default function Contact() {
     const formData = new FormData(formRef.current);
     const data = Object.fromEntries(formData.entries());
 
-    // Sesuaikan nama field agar cocok dengan API
     const payload = {
       name: data.name as string,
       email: data.email as string,
@@ -51,7 +49,6 @@ export default function Contact() {
       }
     } catch (err: unknown) {
       console.error(err);
-      // Karena 'err' bertipe unknown, pakai pengecekan
       const message =
         err instanceof Error ? err.message : "Failed to send message. Please try again.";
       setFeedback(message);

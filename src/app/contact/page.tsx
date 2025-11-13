@@ -33,7 +33,7 @@ export default function ContactPage() {
         <div className="w-full h-72 rounded-xl overflow-hidden shadow-lg border bg-gray-100 flex items-center justify-center">
           <iframe
             title="Google Maps Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d495.56406407167515!2d106.97334352821527!3d-6.456556950510408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6995884f3c0df7%3A0x93088f5b679f1f43!2sPerum%20BCI%20Bogor%20Timur!5e0!3m2!1sid!2sid!4v1758519845631!5m2!1sid!2sid"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.71011644583623!2d106.81464117149359!3d-6.6018733668957585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5003f5ed42f%3A0x7cac6703174c7cc2!2sKosbaw!5e0!3m2!1sid!2sid!4v1763048546792!5m2!1sid!2sid"
             width="100%"
             height="100%"
             style={{ border: 0, minHeight: 288 }}
