@@ -13,7 +13,7 @@ const projects = [
   {
     title: "Virtual Tour Web-Based",
     github: "https://faris-virtualtour.vercel.app/",
-    image: "/images/virtualtour.png",
+    image: "/images/thumbnailvr.png",
     tech: ["HTML", "JavaScript", "CSS"],
   },
   {
