@@ -36,7 +36,7 @@ export default function RootLayout({
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
-        <ClientWrapper /> {/* WAButton hanya jalan di client */}
+        <ClientWrapper />   
       </body>
     </html>
   );

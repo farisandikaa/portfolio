@@ -5,11 +5,29 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "HYP & Partners Attorney and Legal Consultant",
+    title: "HYP & Partners",
     github: "https://hyplawoffice.com",
     image: "/images/thumbnailhyp.png",
     tech: ["Laravel", "JavaScript", "TailwindCSS"],
   },
+  {
+    title: "Scaltech Store",
+    github: "https://scaltech-frondent.vercel.app/",
+    image: "/images/thumbnailscaltech.jpeg",
+    tech: ["Next.js", "Expres.js", "TailwindCSS"],
+  },
+  {
+    title: "Riva Cake",
+    github: "https://github.com/farisandikaa/rivacake",
+    image: "/images/thumbnailrivacake.png",
+    tech: ["Laravel", "MySQL", "JavaScript"],
+  },
+  {
+    title: "Bank DP Taspen Bogor",
+    github: "https://github.com/farisandikaa/bank",
+    image: "/images/thumbnailtaspen.png",
+    tech: ["Laravel", "TailwindCSS", "JavaScript"],
+  },  
   {
     title: "Virtual Tour Web-Based",
     github: "https://faris-virtualtour.vercel.app/",
@@ -17,22 +35,10 @@ const projects = [
     tech: ["HTML", "JavaScript", "CSS"],
   },
   {
-    title: "E-commerce App - Riva Cake",
-    github: "https://github.com/farisandikaa/rivacake",
-    image: "/images/rivacake.png",
-    tech: ["Laravel", "MySQL", "JavaScript"],
-  },
-  {
     title: "E-commerce App - Tunas Honda",
     github: "https://github.com/farisandikaa/tunashonda",
     image: "/images/tunashonda.png",
     tech: ["CodeIgniter", "CSS", "JavaScript"],
-  },
-  {
-    title: "Bank DP Taspen Bogor",
-    github: "https://github.com/farisandikaa/bank",
-    image: "/images/tunashonda.png",
-    tech: ["Laravel", "TailwindCSS", "JavaScript"],
   },
 ];
 
